@@ -262,13 +262,30 @@ new Vue({
   watch: {
     async selected() {
       window.scrollTo(0, 0);
+      if (!isOpen) {
+        document.querySelector("aside.menu").classList.add("open");
+      } else {
+        document.querySelector("aside.menu").classList.remove("open");
+      }
+      isOpen = !isOpen;
     },
     selectedCountry() {
       console.log(this.selectedCountry);
-      console.log(this.tempCompanies)
-      this.tempCompanies = this.tempCompanies.filter(el => {
-          return el.companycountry
-      })
+      //   console.log(this.tempCompanies);
+      //   this.tempCompanies = this.tempCompanies.filter((el) => {
+      //     return el.companycountry;
+      //   });
     },
   },
 });
+var isOpen = false;
+document
+  .querySelector(".navbar-burger.burger")
+  .addEventListener("click", function () {
+    if (!isOpen) {
+      document.querySelector("aside.menu").classList.add("open");
+    } else {
+      document.querySelector("aside.menu").classList.remove("open");
+    }
+    isOpen = !isOpen;
+  });

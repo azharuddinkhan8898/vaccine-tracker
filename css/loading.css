@@ -9,6 +9,10 @@
   background: #fff;
 }
 
+.charts-wrapper.columns.is-multiline > div {
+  width: 50%;
+}
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;
